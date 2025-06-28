@@ -1,0 +1,9 @@
+<!-- favicon.svg  –  48 × 48 square -->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+  <!-- Tailwind green-500 background -->
+  <rect width="48" height="48" rx="6" fill="#22c55e"/>
+  <!-- Bold “B” – same font-weight you use in the navbar -->
+  <text x="50%" y="70%" text-anchor="middle"
+        font-family="Inter, system-ui, Arial, sans-serif"
+        font-weight="800" font-size="32" fill="#000">B</text>
+</svg>

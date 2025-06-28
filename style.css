@@ -1,0 +1,99 @@
+/* ---------- variables & fond ---------- */
+:root{
+  --accent:#19d28f;
+  --bg:#0d0f12;
+  --fontBubble:'Lilita One',cursive;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:#d1d5db;
+  font-family:Inter,system-ui,Arial,sans-serif;
+}
+body::before{                       /* halo vert */
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse 60% 40% at 85% 10%,
+             rgba(0,255,180,.25),transparent 60%);
+}
+
+/* ---------- barre de progression ---------- */
+#progress{
+  position:fixed;right:0;top:0;width:2px;height:0;
+  background:var(--accent);z-index:50;transition:height .2s linear;
+}
+
+/* ---------- NAV ---------- */
+.navbar{
+  position:fixed;inset-inline:0;top:0;z-index:20;
+  backdrop-filter:blur(8px);
+  background:#0007;
+}
+.nav-item.active::after{
+  content:"";display:block;height:2px;width:100%;margin-top:2px;
+  background:var(--accent);
+}
+
+/* ---------- pill buttons (unique) ---------- */
+.pill-wrap{
+  background:#1a1d22;
+  border-radius:9999px;
+  padding:4px;
+  width:max-content;
+}
+.pill{
+  padding:.5rem 2.5rem;border-radius:9999px;
+  font-weight:500;cursor:pointer;transition:.2s;
+  color:#9ca3af;
+}
+.pill.is-active{background:var(--accent);color:#000}
+.pill:not(.is-active):hover{background:#ffffff0d}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative}
+.timeline::before{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);
+  top:0;width:2px;height:100%;background:#ffffff0d;
+}
+.dot{
+  position:absolute;left:50%;transform:translate(-50%,-50%);
+  width:10px;height:10px;border-radius:50%;background:#fff;
+}
+.card{
+  width:calc(50% - 2rem);
+  background:#ffffff0a;border:1px solid #ffffff12;
+  border-radius:.5rem;padding:1.5rem;
+}
+.card.left {margin-right:auto}
+.card.right{margin-left:auto}
+
+/* ---------- grille Skills ---------- */
+.grid-wrap{               /* contour dégradé */
+  position:relative;background:#16181d;border-radius:.5rem;padding:1.5rem;
+}
+.grid-wrap::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  padding:2px;background:linear-gradient(145deg,#ffffff0d,var(--accent)44);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.icon-card{
+  height:80px;width:80px;display:grid;place-content:center;
+  background:#202328;border-radius:.3rem;
+  transition:transform .15s,box-shadow .15s;
+}
+.icon-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 0 2px var(--accent),0 4px 14px #000a;
+}
+/* tooltip */
+.icon-card[data-label]::after{
+  content:attr(data-label);position:absolute;left:50%;bottom:110%;
+  transform:translateX(-50%) scale(.8);opacity:0;
+  background:var(--accent);color:#000;border-radius:4px;
+  font-size:.65rem;padding:2px 6px;white-space:nowrap;pointer-events:none;
+  transition:.15s;
+}
+.icon-card:hover::after{opacity:1;transform:translateX(-50%) scale(1);}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About • Benziza Mohamed</title>
+
+  <!-- Tailwind + FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="about">
+<span id="progress"></span>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9 grid place-content-center rounded">B</a>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== ABOUT ========== -->
+<main class="max-w-6xl mx-auto pt-40 px-6 grid md:grid-cols-2 gap-12">
+
+  <!-- Illustration -->
+  <figure class="relative">
+    <img src="https://raw.githubusercontent.com/undraw/undraw/master/static/undraw_programming_re_kg9v.svg"
+         alt="Developer illustration"
+         class="rounded-lg shadow-lg ring-1 ring-black/10">
+    <span class="absolute inset-0 translate-x-3 translate-y-3 bg-green-900/60 rounded-lg -z-10"></span>
+  </figure>
+
+  <!-- Text -->
+  <article>
+    <h6 class="uppercase text-[var(--accent)] tracking-widest mb-2">About Me</h6>
+    <h1 class="text-3xl md:text-4xl font-bold mb-6">
+      Full-Stack Developer<br>Passionate&nbsp;about&nbsp;Clean&nbsp;Code
+    </h1>
+
+    <p class="text-gray-300 mb-4">
+      Hi, I’m <span class="font-semibold text-[var(--accent)]">Benziza Mohamed</span> —
+      a full-stack software engineer with <strong>2 + years’ experience in Java &amp; JavaScript</strong>.
+      I design and build robust web applications, from pixel-perfect UIs to scalable cloud-native APIs.
+    </p>
+
+    <p class="text-gray-300 mb-6">
+      I thrive on technical challenges and believe that <em>teamwork and knowledge-sharing</em>
+      are the keys to shipping great products and delighting users.
+    </p>
+
+    <h3 class="font-semibold mb-2">Core Expertise</h3>
+    <ul class="list-disc list-inside space-y-1 text-gray-300 mb-6">
+      <li>Back-end : Spring Boot, Jakarta EE, ASP.NET&nbsp;Core, FastAPI</li>
+      <li>Front-end : Angular 14 +, Vue 3, TailwindCSS</li>
+      <li>Databases : PostgreSQL, MongoDB, SQL Server</li>
+      <li>DevOps : Docker, Kubernetes, Jenkins / GitLab CI, Ansible, AWS</li>
+      <li>Clean architecture, TDD &amp; RESTful API design</li>
+    </ul>
+
+    <h3 class="font-semibold mb-2">Contact</h3>
+    <p class="text-gray-300 mb-6 leading-8">
+      <i class="fa-solid fa-phone mr-2 text-[var(--accent)]"></i> +33&nbsp;6&nbsp;01&nbsp;50&nbsp;39&nbsp;40<br>
+      <i class="fa-solid fa-envelope mr-2 text-[var(--accent)]"></i> benzizamohamed@gmail.com<br>
+      <i class="fa-brands fa-github mr-2 text-[var(--accent)]"></i> <a href="https://github.com/benziza" target="_blank" class="underline hover:text-green-400">github.com/benziza</a><br>
+      <i class="fa-brands fa-linkedin mr-2 text-[var(--accent)]"></i> <a href="https://www.linkedin.com/in/mohamed-benziza-6849b71bb/" target="_blank" class="underline hover:text-green-400">linkedin.com/in/benziza</a>
+    </p>
+
+    <div class="flex gap-4">
+      <a href="contact.html"
+         class="px-8 py-3 rounded bg-green-500 text-black font-medium hover:bg-green-600 transition">
+        Let’s Talk
+      </a>
+      <a href="cv_benziza.pdf" download
+         class="px-8 py-3 rounded border border-green-500 hover:bg-green-500 hover:text-black transition">
+        Download CV
+      </a>
+    </div>
+  </article>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>

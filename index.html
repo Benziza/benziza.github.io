@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Benziza Mohamed</title>
+
+  <!-- Tailwind + FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Comic-style headline font for the surname -->
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="home" class="scroll-smooth selection:bg-teal-400/30">
+<span id="progress"></span>
+
+<!-- ========= NAVBAR ========= -->
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9
+              grid place-content-center rounded">B</a>
+
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========= HERO ========= -->
+<main class="min-h-screen flex flex-col justify-center text-center px-6">
+  <p class="text-lg mb-4">
+    Hello <span class="animate-pulse inline-block origin-[70%_70%]">👋</span>, I’m
+  </p>
+
+  <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-2 leading-tight">
+    <span style="font-family:'Lilita One',cursive;">BENZIZA&nbsp;</span>
+    <span style="font-family:'Lilita One',cursive;color:var(--accent)">MOHAMED</span>
+  </h1>
+
+  <h2 class="text-2xl md:text-3xl font-semibold mb-6">
+    Full-Stack&nbsp;<span style="color:var(--accent)">Software&nbsp;Engineer</span>
+  </h2>
+
+  <p class="max-w-xl mx-auto text-gray-400 mb-10">
+    Building efficient APIs, resilient cloud back-ends and delightful front-end experiences —
+    always with clean code and a passion for teamwork.
+  </p>
+
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="contact.html"
+       class="px-10 py-3 rounded bg-green-500 text-black font-medium
+              hover:bg-green-600 transition">Hire&nbsp;Me</a>
+    <a href="projects.html"
+       class="px-10 py-3 rounded border border-green-500
+              hover:bg-green-500 hover:text-black transition">View&nbsp;Projects</a>
+  </div>
+</main>
+
+<!-- ========= FLOATING SOCIALS ========= -->
+<ul class="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6 text-xl">
+  <li>
+    <a href="https://github.com/benziza" target="_blank"
+       class="w-10 h-10 grid place-content-center rounded-full bg-white/10
+              hover:bg-[var(--accent)] hover:text-black transition">
+       <i class="fab fa-github"></i></a>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com/in/mohamed-benziza-6849b71bb/" target="_blank"
+       class="w-10 h-10 grid place-content-center rounded-full bg-white/10
+              hover:bg-[var(--accent)] hover:text-black transition">
+       <i class="fab fa-linkedin-in"></i></a>
+  </li>
+  <li>
+    <a href="mailto:benizizamohamed@gmail.com"
+       class="w-10 h-10 grid place-content-center rounded-full bg-white/10
+              hover:bg-[var(--accent)] hover:text-black transition">
+       <i class="fas fa-envelope"></i></a>
+  </li>
+</ul>
+
+<script src="main.js"></script>
+</body>
+</html>

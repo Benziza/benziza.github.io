@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Benziza Mohamed</title>
 
-  <!-- Tailwind + FontAwesome -->
+  <!-- Tailwind + Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -37,84 +37,121 @@
   <p class="uppercase tracking-widest text-[var(--accent)] mb-1">Projects</p>
   <h1 class="text-3xl md:text-4xl font-semibold mb-4">Hands-On Work I’m Proud Of</h1>
   <p class="max-w-3xl text-gray-300 mb-12">
-    Below is a selection of personal and academic projects that showcase my love for clean
-    code, efficient architectures and polished user experience.
+    A selection of professional, personal and academic builds—each focusing on clean code
+    and solid architecture.
   </p>
 
+  <!-- ========== FILTER BAR (NEW) ========== -->
+  <div id="filterBar" class="flex flex-wrap gap-4 mb-10"></div>
+
+  <!-- ========== GRID ========== -->
   <div id="projectsGrid"
        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </main>
 
 <script>
-/* ========= DATASET (edit here) ========= */
+/* ========= DATA (add type for filtering) ========= */
 const projects = [
   {
-    title : 'CODING – Mobile Learning App',
-    img   : 'assets/coding_app.png',           // 600×350 thumbnail
-    year  : 2022,
-    tech  : ['Ionic','Angular','Firebase'],
-    git   : 'https://github.com/Benziza/CODING'
+    title:'CODING – Mobile Learning App',
+    img  :'assets/coding_app.png',
+    year :2022,
+    tech :['Ionic','Angular','Firebase'],
+    type :'mobile',
+    git  :'https://github.com/Benziza/CODING'
   },
   {
-    title : 'Todo List (MEAN stack)',
-    img   : 'assets/todo_mean.png',
-    year  : 2022,
-    tech  : ['Angular','Spring Boot','MongoDB'],
-    git   : 'https://github.com/Benziza/My-Todos-Spring-Boot-Angular-MonogoDB'
+    title:'Todo List (MEAN stack)',
+    img  :'assets/todo_mean.png',
+    year :2022,
+    tech :['Angular','Spring Boot','MongoDB'],
+    type :'web',
+    git  :'https://github.com/Benziza/My-Todos-Spring-Boot-Angular-MonogoDB'
   },
   {
-    title : 'Flight Booking Platform',
-    img   : 'assets/flight_booking.png',
-    year  : 2021,
-    tech  : ['Java (JSP / Servlet)','NoSQL'],
-    git   : 'https://github.com/Benziza/Book-Angular-Part4'
+    title:'Flight Booking Platform',
+    img  :'assets/flight_booking.png',
+    year :2021,
+    tech :['Java (JSP/Servlet)','NoSQL'],
+    type :'web',
+    git  :'https://github.com/Benziza/Book-Angular-Part4'
   },
   {
-    title : 'Real-Time Chat App',
-    img   : 'assets/chat_app.png',
-    year  : 2021,
-    tech  : ['Spring Boot','WebSocket'],
-    git   : 'https://github.com/Benziza/Chat-Application'
+    title:'Real-Time Chat App',
+    img  :'assets/chat_app.png',
+    year :2021,
+    tech :['Spring Boot','WebSocket'],
+    type :'web',
+    git  :'https://github.com/Benziza/Chat-Application'
   },
   {
-    title : 'Find-A-Worker Mobile',
-    img   : 'assets/find_worker.png',
-    year  : 2020,
-    tech  : ['Android','SQLite'],
-    git   : 'https://github.com/Benziza/allom3alem'
-  }
+    title:'Find-A-Worker Mobile',
+    img  :'assets/find_worker.png',
+    year :2020,
+    tech :['Android','SQLite'],
+    type :'web',
+    git  :'https://github.com/Benziza/allom3alem'
+  },
 ];
 
-/* ========= RENDER ========= */
-const grid = document.getElementById('projectsGrid');
+/* =========  BUILD FILTER BAR  ========= */
+const filterBar = document.getElementById('filterBar');
+const types     = ['all', ...new Set(projects.map(p => p.type))];
 
-projects.forEach(p=>{
-  const tags = p.tech.map(t =>
-    `<span class="bg-white/10 px-3 py-1 rounded-full text-xs">${t}</span>`
-  ).join('');
-
-  grid.insertAdjacentHTML('beforeend',`
-    <article class="rounded-lg overflow-hidden bg-white/5 ring-1 ring-white/10 flex flex-col">
-      <img src="${p.img}" alt="${p.title}" class="h-40 w-full object-cover">
-      <div class="p-4 flex-1 flex flex-col justify-between">
-        <div>
-          <h3 class="font-semibold mb-2">${p.title}</h3>
-          <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
-        </div>
-        <div class="flex items-center justify-between text-xs text-gray-400">
-          <span>${p.year}</span>
-          <a href="${p.git}" target="_blank"
-             class="h-7 w-7 grid place-content-center rounded-full bg-white/5
-                    hover:bg-[var(--accent)] hover:text-black transition">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </article>`);
+types.forEach(tp=>{
+  filterBar.insertAdjacentHTML('beforeend',`
+    <button data-type="${tp}"
+            class="pill ${tp==='all' ? 'is-active' : ''}">
+      ${tp.replace(/^\w/,c=>c.toUpperCase())}
+    </button>`);
 });
 
-/* ========= progress bar + nav highlight ========= */
-const bar = document.getElementById('progress');
+/* =========  RENDER GRID  ========= */
+const grid = document.getElementById('projectsGrid');
+
+function render(selected='all'){
+  grid.innerHTML = '';
+  projects
+    .filter(p => selected==='all' || p.type===selected)
+    .forEach(p=>{
+      const tags = p.tech.map(t =>
+        `<span class="bg-white/10 px-3 py-1 rounded-full text-xs">${t}</span>`).join('');
+      grid.insertAdjacentHTML('beforeend',`
+        <article class="rounded-lg overflow-hidden bg-white/5 ring-1 ring-white/10 flex flex-col">
+          <img src="${p.img}" alt="${p.title}" class="h-40 w-full object-cover">
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-semibold mb-2">${p.title}</h3>
+              <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>${p.year}</span>
+              <a href="${p.git}" target="_blank"
+                 class="h-7 w-7 grid place-content-center rounded-full bg-white/5
+                        hover:bg-[var(--accent)] hover:text-black transition">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </article>`);
+    });
+}
+
+/* =========  FILTER HANDLERS  ========= */
+filterBar.addEventListener('click', e=>{
+  if(!e.target.matches('.pill')) return;
+  const sel = e.target.dataset.type;
+  document.querySelectorAll('#filterBar .pill').forEach(b=>{
+    b.classList.toggle('is-active', b.dataset.type===sel);
+  });
+  render(sel);
+});
+
+/* =========  INITIALISE  ========= */
+render();
+
+/* =========  Progress bar + nav highlight  ========= */
+const bar=document.getElementById('progress');
 addEventListener('scroll',()=>{
   const h=document.documentElement.scrollHeight-innerHeight;
   bar.style.height=`${(scrollY/h)*100}%`;

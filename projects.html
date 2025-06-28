@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects • Benziza Mohamed</title>
+
+  <!-- Tailwind + FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="projects">
+<span id="progress"></span>
+
+<!-- ========= NAVBAR ========= -->
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9 grid place-content-center rounded">B</a>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========= CONTENT ========= -->
+<main class="max-w-6xl mx-auto pt-32 pb-24 px-6">
+  <p class="uppercase tracking-widest text-[var(--accent)] mb-1">Projects</p>
+  <h1 class="text-3xl md:text-4xl font-semibold mb-4">Hands-On Work I’m Proud Of</h1>
+  <p class="max-w-3xl text-gray-300 mb-12">
+    Below is a selection of personal and academic projects that showcase my love for clean
+    code, efficient architectures and polished user experience.
+  </p>
+
+  <div id="projectsGrid"
+       class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</main>
+
+<script>
+/* ========= DATASET (edit here) ========= */
+const projects = [
+  {
+    title : 'CODING – Mobile Learning App',
+    img   : 'assets/coding_app.png',           // 600×350 thumbnail
+    year  : 2022,
+    tech  : ['Ionic','Angular','Firebase'],
+    git   : 'https://github.com/benziza/coding-app'
+  },
+  {
+    title : 'Todo List (MEAN stack)',
+    img   : 'assets/todo_mean.png',
+    year  : 2022,
+    tech  : ['Angular','Spring Boot','MongoDB'],
+    git   : 'https://github.com/benziza/mean-todo'
+  },
+  {
+    title : 'Flight Booking Platform',
+    img   : 'assets/flight_booking.png',
+    year  : 2021,
+    tech  : ['Java (JSP / Servlet)','NoSQL'],
+    git   : 'https://github.com/benziza/flight-booking'
+  },
+  {
+    title : 'Real-Time Chat App',
+    img   : 'assets/chat_app.png',
+    year  : 2021,
+    tech  : ['Spring Boot','WebSocket'],
+    git   : 'https://github.com/benziza/chat-app'
+  },
+  {
+    title : 'Find-A-Worker Mobile',
+    img   : 'assets/find_worker.png',
+    year  : 2020,
+    tech  : ['Android','SQLite'],
+    git   : 'https://github.com/benziza/find-worker'
+  }
+];
+
+/* ========= RENDER ========= */
+const grid = document.getElementById('projectsGrid');
+
+projects.forEach(p=>{
+  const tags = p.tech.map(t =>
+    `<span class="bg-white/10 px-3 py-1 rounded-full text-xs">${t}</span>`
+  ).join('');
+
+  grid.insertAdjacentHTML('beforeend',`
+    <article class="rounded-lg overflow-hidden bg-white/5 ring-1 ring-white/10 flex flex-col">
+      <img src="${p.img}" alt="${p.title}" class="h-40 w-full object-cover">
+      <div class="p-4 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 class="font-semibold mb-2">${p.title}</h3>
+          <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
+        </div>
+        <div class="flex items-center justify-between text-xs text-gray-400">
+          <span>${p.year}</span>
+          <a href="${p.git}" target="_blank"
+             class="h-7 w-7 grid place-content-center rounded-full bg-white/5
+                    hover:bg-[var(--accent)] hover:text-black transition">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </article>`);
+});
+
+/* ========= progress bar + nav highlight ========= */
+const bar = document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.height=`${(scrollY/h)*100}%`;
+});
+document.querySelectorAll('.nav-item').forEach(a=>{
+  if(a.dataset.page===document.body.dataset.page)a.classList.add('active');
+});
+</script>
+</body>
+</html>

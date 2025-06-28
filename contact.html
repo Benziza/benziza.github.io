@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact • Benziza Mohamed</title>
+
+  <!-- Tailwind CSS + FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="contacts" class="scroll-smooth">
+<span id="progress"></span>
+
+<!-- ========= NAVBAR ========= -->
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9 grid place-content-center rounded">B</a>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========= MAIN ========= -->
+<main class="max-w-6xl mx-auto pt-32 pb-24 px-6 grid md:grid-cols-2 gap-16">
+
+  <!-- ===== Left : details (filled by JS) ===== -->
+  <section id="contactDetails"></section>
+
+  <!-- ===== Right : form ===== -->
+  <section class="bg-white/5 ring-1 ring-white/10 rounded-lg p-8">
+    <h2 class="text-lg font-medium mb-6">Send Me a Message</h2>
+
+    <form action="#" method="POST" class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm mb-1" for="fullName">Full Name</label>
+          <input id="fullName" name="name" type="text" required
+                 placeholder="e.g. Jane Doe"
+                 class="w-full bg-[#141518] border border-white/10 rounded px-4 py-2
+                        outline-none focus:ring-2 focus:ring-[var(--accent)]">
+        </div>
+        <div>
+          <label class="block text-sm mb-1" for="email">Email Address</label>
+          <input id="email" name="email" type="email" required
+                 placeholder="e.g. doe.jane@gmail.com"
+                 class="w-full bg-[#141518] border border-white/10 rounded px-4 py-2
+                        outline-none focus:ring-2 focus:ring-[var(--accent)]">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1" for="type">Enquiry Type</label>
+        <select id="type" name="type"
+                class="w-full bg-[#141518] border border-white/10 rounded px-4 py-2
+                       outline-none focus:ring-2 focus:ring-[var(--accent)]">
+          <option selected disabled>Select enquiry type</option>
+          <option>Freelance / Contract</option>
+          <option>Full-time Opportunity</option>
+          <option>Collaboration</option>
+          <option>Just Say Hi</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1" for="msg">Message</label>
+        <textarea id="msg" name="message" rows="6" required
+                  placeholder="Write your message here…"
+                  class="w-full bg-[#141518] border border-white/10 rounded px-4 py-2
+                         resize-none outline-none focus:ring-2 focus:ring-[var(--accent)]"></textarea>
+      </div>
+
+      <button type="submit"
+              class="px-8 py-3 rounded bg-[var(--accent)] text-black font-medium
+                     hover:bg-emerald-400 transition">
+        SEND MESSAGE
+      </button>
+    </form>
+  </section>
+</main>
+
+<!-- ========= SCRIPT ========= -->
+<script>
+/* ====== Contact info (single source of truth) ====== */
+const contactInfo = {
+  phone  : '+33 6 01 50 39 40',
+  email  : 'benzizamohamed@gmail.com',
+  socials: [
+    {icon:'fa-github',    url:'https://github.com/benziza'},
+    {icon:'fa-linkedin',  url:'https://linkedin.com/in/benziza'},
+    {icon:'fa-twitter',   url:'#'},
+    {icon:'fa-instagram', url:'#'}
+  ]
+};
+
+/* ====== Inject left-hand section ====== */
+document.getElementById('contactDetails').innerHTML = `
+  <p class="uppercase text-[var(--accent)] tracking-widest mb-1">Contact</p>
+  <h1 class="text-3xl md:text-4xl font-semibold mb-4">
+    Let’s Build Something<br>Awesome Together
+  </h1>
+
+  <p class="text-gray-300 max-w-md mb-8">
+    Whether you’ve got a challenging project in mind, need full-stack expertise,
+    or just want to say hello—drop me a line.
+  </p>
+
+  <div class="flex items-start gap-4 mb-6">
+    <span class="h-9 w-9 grid place-content-center rounded-full bg-white/10
+                 text-[var(--accent)]">
+      <i class="fa-solid fa-phone"></i>
+    </span>
+    <div>
+      <p class="text-sm text-gray-400">Phone</p>
+      <p class="font-medium">${contactInfo.phone}</p>
+    </div>
+  </div>
+
+  <div class="flex items-start gap-4 mb-10">
+    <span class="h-9 w-9 grid place-content-center rounded-full bg-white/10
+                 text-[var(--accent)]">
+      <i class="fa-solid fa-envelope"></i>
+    </span>
+    <div>
+      <p class="text-sm text-gray-400">Email</p>
+      <p class="font-medium">${contactInfo.email}</p>
+    </div>
+  </div>
+
+  <p class="mb-4">Connect with me</p>
+  <div class="flex gap-4 text-xl">
+    ${contactInfo.socials.map(s=>`
+      <a href="${s.url}" target="_blank"
+         class="h-9 w-9 grid place-content-center rounded-full bg-white/10
+                hover:bg-[var(--accent)] hover:text-black transition">
+        <i class="fab ${s.icon}"></i>
+      </a>`).join('')}
+  </div>
+`;
+
+/* ====== Progress bar & nav highlight ====== */
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.height=`${(scrollY/h)*100}%`;
+});
+document.querySelectorAll('.nav-item').forEach(a=>{
+  if(a.dataset.page===document.body.dataset.page)a.classList.add('active');
+});
+</script>
+</body>
+</html>

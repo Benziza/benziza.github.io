@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Experience &amp; Education • Benziza Mohamed</title>
+
+  <!-- Tailwind + Font-Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="experience">
+<span id="progress"></span>
+
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9 grid place-content-center rounded">B</a>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto pt-32 pb-24 px-6">
+  <p class="text-center uppercase tracking-widest text-[var(--accent)] mb-1">My Journey</p>
+  <h1 class="text-center text-3xl md:text-4xl font-semibold mb-12">
+    Experience&nbsp;&amp;&nbsp;Education
+  </h1>
+
+  <!-- Pills -->
+  <div class="flex justify-center gap-4 mb-10">
+    <button id="pillExp" class="pill is-active">Experience</button>
+    <button id="pillEdu" class="pill">Education</button>
+  </div>
+
+  <div class="w-12 h-12 rounded-full bg-white/10 mx-auto grid place-content-center mb-8">
+    <i id="tlIcon" class="fa-solid fa-briefcase text-[var(--accent)] text-lg"></i>
+  </div>
+
+  <!-- Timeline rendered by JS -->
+  <section id="timeline" class="timeline space-y-20"></section>
+</main>
+
+<script>
+/* ========== DATA ========== */
+const experiences = [
+  {
+    period:'Sep 2024 – Present',
+    title :'Talentplug',
+    role  :'Full-Stack Developer (Permanent)',
+    place :'Lille, France',
+    scope :'Vue 3, TypeScript, Turbo, ASP.NET Core, GitLab CI, Keycloak, Docker, SQL Server, AWS',
+    resps :[
+      'Designed and implemented new front- and back-end features.',
+      'Built CI/CD pipelines with GitLab CI and containerised deployments on AWS.',
+      'Reworked authentication and SSO with Keycloak.'
+    ]
+  },
+  {
+    period:'Oct 2023 – Aug 2024',
+    title :'Talentplug',
+    role  :'MSc Apprentice – Full-Stack',
+    place :'Lille, France',
+    scope :'Vue 3, TypeScript, Turbo, ASP.NET Core, Docker, SQL Server',
+    resps :[
+      'Optimised Desk and Enterprise site features (+30 % performance).',
+      'Added E2E tests and application monitoring.'
+    ]
+  },
+  {
+    period:'Mar – Aug 2023',
+    title :'IDEMIA',
+    role  :'Master Thesis Intern – Software Engineer',
+    place :'Casablanca, Morocco',
+    scope :'Spring, Angular, Maven, Keycloak, Docker, Nginx, PostgreSQL, OpenStack',
+    resps :[
+      'Developed and integrated a modular biometric-ID system (MOSIP).',
+      'Automated deployments on OpenStack.'
+    ]
+  },
+  {
+    period:'Jul – Sep 2022',
+    title :'SQLI',
+    role  :'PFA Intern – Dynamics 365 API',
+    place :'Oujda, Morocco',
+    scope :'.NET 6, Angular, SQL Server',
+    resps :[
+      'Created secure REST APIs for the Dynamics 365 customer portal.',
+      'Produced Swagger docs and unit tests.'
+    ]
+  },
+  {
+    period:'Aug – Sep 2021',
+    title :'CHU Oujda',
+    role  :'Developer Intern',
+    place :'Oujda, Morocco',
+    scope :'PHP, MySQL, JavaScript, Bootstrap',
+    resps :['Developed an internal web-based phone directory.']
+  }
+];
+
+const educations = [
+  {
+    period:'2023 – 2024',
+    title :'MSc 2 – Information Technologies & Web',
+    place :'Claude-Bernard University Lyon 1',
+    resps :['Specialised in full-stack development and cloud computing.']
+  },
+  {
+    period:'2018 – 2023',
+    title :'State Engineer – Computer Engineering',
+    place :'National School of Applied Sciences, Oujda',
+    resps :['Graduated top of class with high honours.']
+  }
+];
+
+/* ========== HELPERS ========== */
+const timeline = document.getElementById('timeline');
+
+function card(obj, side){
+  const body = obj.resps.length > 1
+      ? `<ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+           ${obj.resps.map(r=>`<li>${r}</li>`).join('')}
+         </ul>`
+      : `<p class="text-sm text-gray-300 mt-2">${obj.resps[0]}</p>`;
+
+  return `
+  <article class="relative">
+    <span class="dot"></span>
+    <div class="card ${side}">
+      <p class="text-xs text-gray-400 mb-1">${obj.period}</p>
+      <h3 class="font-semibold">
+        ${obj.title}${obj.role ? `<span class="text-xs text-gray-400 font-normal"> — ${obj.role}</span>` : ''}
+      </h3>
+      ${obj.place ? `<p class="text-xs text-gray-400 mb-3">${obj.place}</p>` : ''}
+      ${obj.scope ? `<h4 class="text-sm font-semibold text-[var(--accent)] mb-1">Tech Stack</h4>
+                     <p class="text-sm mb-3">${obj.scope}</p>` : ''}
+      <h4 class="text-sm font-semibold text-[var(--accent)] mb-1">${obj.role ? 'Key Achievements' : 'Details'}</h4>
+      ${body}
+    </div>
+  </article>`;
+}
+
+function render(list){
+  timeline.innerHTML = '';
+  list.forEach((item,i)=>{
+    const side = i % 2 === 0 ? 'left' : 'right';
+    timeline.insertAdjacentHTML('beforeend', card(item, side));
+  });
+}
+
+/* ========== PILL SWITCH ========== */
+const pillExp = document.getElementById('pillExp');
+const pillEdu = document.getElementById('pillEdu');
+const icon    = document.getElementById('tlIcon');
+
+function activate(exp){
+  pillExp.classList.toggle('is-active', exp);
+  pillEdu.classList.toggle('is-active', !exp);
+  icon.className = `fa-solid ${exp ? 'fa-briefcase':'fa-graduation-cap'} text-[var(--accent)] text-lg`;
+  render(exp ? experiences : educations);
+}
+pillExp.onclick = ()=>activate(true);
+pillEdu.onclick = ()=>activate(false);
+activate(true);                        // default
+
+/* ========== progress + nav highlight ========== */
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.height=`${(scrollY/h)*100}%`;
+});
+document.querySelectorAll('.nav-item').forEach(a=>{
+  if(a.dataset.page===document.body.dataset.page)a.classList.add('active');
+});
+</script>
+</body>
+</html>

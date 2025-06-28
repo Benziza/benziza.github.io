@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Skills • Benziza Mohamed</title>
+
+<!-- Tailwind + FontAwesome + Devicon -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="skills" class="scroll-smooth">
+<span id="progress"></span>
+
+<!-- ========= NAVBAR ========= -->
+<header class="navbar">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html"
+       class="text-2xl font-extrabold bg-green-500 text-black w-9 h-9 grid place-content-center rounded">B</a>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a data-page="home"       class="nav-item hover:text-green-400" href="index.html">Home</a>
+      <a data-page="about"      class="nav-item hover:text-green-400" href="about.html">About</a>
+      <a data-page="experience" class="nav-item hover:text-green-400" href="experience.html">Experience</a>
+      <a data-page="skills"     class="nav-item hover:text-green-400" href="skills.html">Skills</a>
+      <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
+      <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========= CONTENT ========= -->
+<main class="max-w-6xl mx-auto pt-32 pb-24 px-6 grid md:grid-cols-2 gap-16">
+  <!-- Text column -->
+  <section>
+    <p class="uppercase text-[var(--accent)] tracking-widest mb-1">My Skills</p>
+    <h1 class="text-3xl md:text-4xl font-semibold mb-6">What I Bring to the Code</h1>
+
+    <div class="grid grid-cols-3 gap-6 mb-10 text-sm">
+      <div>
+        <h3 class="font-semibold mb-2">Languages</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Java&nbsp;(8/11/17)</li>
+          <li>JavaScript / TypeScript</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Back-End</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>.NET&nbsp;6 / ASP.NET&nbsp;Core</li>
+          <li>Spring&nbsp;Boot</li>
+          <li>Jakarta&nbsp;EE</li>
+          <li>FastAPI</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Front-End</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Angular&nbsp;14+</li>
+          <li>Vue&nbsp;3</li>
+          <li>TailwindCSS</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">DevOps&nbsp;/ Cloud</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Docker &amp; Kubernetes</li>
+          <li>Jenkins&nbsp;CI / GitLab&nbsp;CI</li>
+          <li>Ansible, AWS</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Databases</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+          <li>SQL&nbsp;Server</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pills -->
+    <div class="pill-wrap">
+      <button id="pillSkills" class="pill is-active">Skills</button>
+      <button id="pillTools"  class="pill">Tools</button>
+    </div>
+  </section>
+
+  <!-- Icon grids -->
+  <section>
+    <div id="gridSkills"
+         class="grid grid-cols-4 gap-4 bg-white/5 p-6 ring-1 ring-white/10 rounded-lg"></div>
+
+    <div id="gridTools"
+         class="hidden grid grid-cols-4 gap-4 bg-white/5 p-6 ring-1 ring-white/10 rounded-lg"></div>
+  </section>
+</main>
+
+<!-- ========= SCRIPT ========= -->
+<script>
+/* ---------- ICON DATA ---------- */
+const skillsIcons = [
+  {t:'dev', c:'devicon-java-plain',                 label:'Java'},
+  {t:'dev', c:'devicon-javascript-plain',           label:'JavaScript'},
+  {t:'dev', c:'devicon-typescript-plain',           label:'TypeScript'},
+  {t:'dev', c:'devicon-spring-plain',               label:'Spring Boot'},
+  {t:'dev', c:'devicon-dotnetcore-plain',           label:'.NET'},
+  {t:'dev', c:'devicon-angularjs-plain',            label:'Angular'},
+  {t:'dev', c:'devicon-vuejs-plain',                label:'Vue'},
+  {t:'dev', c:'devicon-tailwindcss-plain',          label:'Tailwind'},
+  {t:'dev', c:'devicon-postgresql-plain',           label:'PostgreSQL'},
+  {t:'dev', c:'devicon-mongodb-plain',              label:'MongoDB'},
+  {t:'dev', c:'devicon-docker-plain',               label:'Docker'},
+  {t:'dev', c:'devicon-kubernetes-plain',           label:'Kubernetes'},
+  {t:'dev', c:'devicon-jenkins-plain',              label:'Jenkins'},
+  {t:'svg', s:'https://cdn.simpleicons.org/ansible/EE0000', label:'Ansible'},
+  {t:'dev', c:'devicon-java-plain',                 label:'JAKARTA EE'},
+  {t:'svg', s:'https://cdn.simpleicons.org/keycloak/0088BB',     label:'Keycloak'},
+  {t:'svg', s:'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',    label:'AWS'},
+  {t:'svg', s:'https://upload.wikimedia.org/wikipedia/commons/4/41/Microsoft_SQL_Server_2025_icon.svg',    label:'SQL Server'},
+];
+
+const toolsIcons = [
+  {t:'dev', c:'devicon-git-plain',                  label:'Git'},
+  {t:'dev', c:'devicon-github-original',            label:'GitHub'},
+  {t:'dev', c:'devicon-gitlab-plain',               label:'GitLab'},
+  {t:'dev', c:'devicon-vscode-plain',               label:'VS Code'},
+  {t:'svg', s:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Visual_Studio_Icon_2022.svg', label:'Visual Studio'},
+  {t:'svg', s:'https://cdn.simpleicons.org/intellijidea/FF3366', label:'IntelliJ'},
+  {t:'svg', s:'https://cdn.simpleicons.org/pycharm/37E0A5',      label:'PyCharm'},
+  {t:'svg', s:'https://cdn.simpleicons.org/postman/FF6C37',      label:'Postman'},
+];
+
+/* ---------- Helpers ---------- */
+function iconHTML(item){
+  return item.t==='dev'
+    ? `<i class="${item.c} colored text-4xl"></i>`
+    : `<img src="${item.s}" alt="${item.label}" class="h-9">`;
+}
+function fill(gridId, list){
+  const grid=document.getElementById(gridId); grid.innerHTML='';
+  list.forEach(it=>{
+    grid.insertAdjacentHTML('beforeend',`
+      <div class="icon-card" data-label="${it.label}">
+        ${iconHTML(it)}
+      </div>`);
+  });
+}
+
+/* ---------- Init & toggle ---------- */
+fill('gridSkills', skillsIcons);
+fill('gridTools' , toolsIcons);
+
+const pillSkills=document.getElementById('pillSkills');
+const pillTools =document.getElementById('pillTools');
+const gridSkills=document.getElementById('gridSkills');
+const gridTools =document.getElementById('gridTools');
+function toggle(showSkills){
+  pillSkills.classList.toggle('is-active', showSkills);
+  pillTools .classList.toggle('is-active',!showSkills);
+  gridSkills.classList.toggle('hidden',!showSkills);
+  gridTools .classList.toggle('hidden', showSkills);
+}
+pillSkills.onclick=()=>toggle(true);
+pillTools .onclick=()=>toggle(false);
+
+/* ---------- Progress bar & nav highlight ---------- */
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.height=`${(scrollY/h)*100}%`;
+});
+document.querySelectorAll('.nav-item').forEach(a=>{
+  if(a.dataset.page===document.body.dataset.page)a.classList.add('active');
+});
+</script>
+</body>
+</html>

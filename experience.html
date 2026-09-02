@@ -66,21 +66,6 @@
 /* ========== DATA ========== */
 const experiences = [
   {
-    period:'2026 – Present',
-    title :'OpenObserve',
-    role  :'Open-Source Contributor',
-    place :'Remote',
-    scope :'Vue 3, TypeScript, Vitest, i18n, Arabic, RTL',
-    resps :[
-      'Improved browser-locale matching with language-subtag fallback (PR #14088, merged).',
-      'Built Arabic localisation, locale selection and a basic RTL foundation (PR #14130, under review).'
-    ],
-    links :[
-      {label:'#14088 Merged', url:'https://github.com/openobserve/openobserve/pull/14088'},
-      {label:'#14130 In review', url:'https://github.com/openobserve/openobserve/pull/14130'}
-    ]
-  },
-  {
     period:'Sep 2024 – Present',
     title :'Talentplug',
     role  :'Full-Stack Developer (Permanent)',
@@ -173,10 +158,6 @@ function card(obj, side){
                      <p class="text-sm mb-3">${obj.scope}</p>` : ''}
       <h4 class="text-sm font-semibold text-[var(--accent)] mb-1">${obj.role ? 'Key Achievements' : 'Details'}</h4>
       ${body}
-      ${obj.links ? `<div class="flex flex-wrap gap-2 mt-4">
-        ${obj.links.map(link=>`<a href="${link.url}" target="_blank" rel="noopener noreferrer"
-          class="contribution-link">${link.label}<i class="fa-solid fa-arrow-up-right-from-square"></i></a>`).join('')}
-      </div>` : ''}
     </div>
   </article>`;
 }

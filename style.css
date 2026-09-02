@@ -103,14 +103,6 @@ body::before{                       /* halo vert */
 .card.left {margin-right:auto}
 .card.right{margin-left:auto}
 
-.contribution-link{
-  display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;
-  border:1px solid #ffffff1a;border-radius:9999px;color:#d1fae5;
-  font-size:.7rem;transition:.2s;
-}
-.contribution-link:hover{border-color:var(--accent);color:var(--accent)}
-.contribution-link i{font-size:.55rem}
-
 /* ---------- featured open-source work ---------- */
 .opensource-card{
   display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.6fr);

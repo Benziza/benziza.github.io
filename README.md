@@ -1,7 +1,7 @@
 # Benziza Mohamed – Personal Portfolio
 
-A clean, multi-page portfolio that introduces who I am, what I do, my current
-open-source work, and how to reach me.
+A clean, multi-page portfolio that introduces who I am, what I do, the products
+and tools I build, my open-source contributions, and how to reach me.
 
 ## What you’ll find
 
@@ -9,7 +9,7 @@ open-source work, and how to reach me.
 * **About** – short bio, core skills, contact info  
 * **Experience / Education** – timeline of my journey  
 * **Skills** – an icon grid of tools I use  
-* **Projects** – current OpenObserve contributions plus selected project cards
+* **Projects** – current products, developer tools and open-source contributions
 * **Contact** – simple form that sends me a message
 
 ## View it locally
@@ -22,15 +22,6 @@ open-source work, and how to reach me.
 
 If something doesn’t work or you’d just like to say hello,  
 feel free to open an issue or drop me a message through the contact form.
-
-&nbsp;
-
-## Current open-source work
-
-* [OpenObserve #14088](https://github.com/openobserve/openobserve/pull/14088) –
-  resilient browser-locale matching (merged)
-* [OpenObserve #14130](https://github.com/openobserve/openobserve/pull/14130) –
-  Arabic localisation and basic RTL support (in review)
 
 &nbsp;
 

@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css?v=20260902">
+  <link rel="stylesheet" href="style.css?v=20260902-2">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 
@@ -46,62 +46,14 @@
 <!-- ========= CONTENT ========= -->
 <main class="max-w-6xl mx-auto pt-32 pb-24 px-6">
   <p class="uppercase tracking-widest text-[var(--accent)] mb-1">Projects</p>
-  <h1 class="text-3xl md:text-4xl font-semibold mb-4">Hands-On Work I’m Proud Of</h1>
-  <p class="max-w-3xl text-gray-300 mb-12">
-    Current open-source contributions alongside selected personal and academic builds, each
-    focusing on clean code, usability and solid architecture.
+  <h1 class="text-3xl md:text-4xl font-semibold mb-4">Projects &amp; Contributions</h1>
+  <p class="max-w-3xl text-gray-300 mb-10">
+    Products, developer tools and open-source contributions from across my GitHub profile.
+    Every card links to the code, pull request or live documentation behind the work.
   </p>
 
-  <section class="opensource-card mb-12" aria-labelledby="open-source-title">
-    <div class="opensource-visual" aria-hidden="true">
-      <span class="opensource-mark"><i class="fa-solid fa-chart-line"></i></span>
-      <p class="text-xs uppercase tracking-[0.24em] text-gray-400">Open source</p>
-      <p class="text-2xl font-semibold text-white">OpenObserve</p>
-      <p class="text-sm text-gray-400">Observability platform</p>
-    </div>
-
-    <div class="p-6 md:p-8">
-      <div class="flex flex-wrap items-center gap-3 mb-3">
-        <h2 id="open-source-title" class="text-2xl font-semibold text-white">
-          Arabic localisation &amp; resilient i18n
-        </h2>
-        <span class="project-badge">2026</span>
-      </div>
-      <p class="text-gray-300 mb-6 max-w-2xl">
-        Improving language detection and expanding OpenObserve with Arabic translations,
-        locale selection and the essential RTL foundation, while keeping queries, identifiers
-        and other technical content readable.
-      </p>
-
-      <div class="space-y-3">
-        <a class="contribution-row" href="https://github.com/openobserve/openobserve/pull/14088"
-           target="_blank" rel="noopener noreferrer">
-          <span class="contribution-status is-merged"><i class="fa-solid fa-check"></i> Merged</span>
-          <span class="flex-1"><strong>#14088</strong> Match browser locale by language subtag</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-        </a>
-        <a class="contribution-row" href="https://github.com/openobserve/openobserve/pull/14130"
-           target="_blank" rel="noopener noreferrer">
-          <span class="contribution-status is-review"><i class="fa-regular fa-clock"></i> In review</span>
-          <span class="flex-1"><strong>#14130</strong> Add Arabic localisation and basic RTL support</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-        </a>
-      </div>
-
-      <div class="flex flex-wrap gap-2 mt-6">
-        <span class="project-badge">Vue 3</span>
-        <span class="project-badge">TypeScript</span>
-        <span class="project-badge">Vitest</span>
-        <span class="project-badge">i18n</span>
-        <span class="project-badge">RTL</span>
-      </div>
-    </div>
-  </section>
-
-  <h2 class="text-xl font-semibold mb-6">Selected projects</h2>
-
   <!-- ========== FILTER BAR ========== -->
-  <div id="filterBar" class="flex flex-wrap gap-4 mb-10"></div>
+  <div id="filterBar" class="flex flex-wrap gap-3 mb-10"></div>
 
   <!-- ========== GRID ========== -->
   <div id="projectsGrid"
@@ -109,59 +61,147 @@
 </main>
 
 <script>
-/* ========= DATA (add type for filtering) ========= */
+/* ========= PROJECTS AND CONTRIBUTIONS ========= */
 const projects = [
   {
-    title:'CODING – Mobile Learning App',
-    img  :'assets/coding_app.png',
-    year :2022,
-    tech :['Ionic','Angular','Firebase'],
-    type :'mobile',
-    git  :'https://github.com/Benziza/CODING'
+    title:'QueryGuard.NET',
+    summary:'Detects repeated EF Core queries and enforces query budgets before N+1 regressions reach production.',
+    year:'2026',
+    tech:['C#','.NET','EF Core','Testing'],
+    type:'project', kind:'Developer tool', icon:'fa-solid fa-shield-halved', tone:'violet', mark:'QG',
+    links:[
+      {label:'Code', url:'https://github.com/Benziza/queryguard-dotnet', icon:'fa-brands fa-github'},
+      {label:'Docs', url:'https://benziza.github.io/queryguard-dotnet/', icon:'fa-solid fa-book-open'}
+    ]
   },
   {
-    title:'Todo List (MEAN stack)',
-    img  :'assets/todo_mean.png',
-    year :2022,
-    tech :['Angular','Spring Boot','MongoDB'],
-    type :'web',
-    git  :'https://github.com/Benziza/My-Todos-Spring-Boot-Angular-MonogoDB'
+    title:'RDV Santé',
+    summary:'A multilingual medical appointment booking MVP with secure roles, scheduling, favourites and calendar export.',
+    year:'2026',
+    tech:['ASP.NET Core','PostgreSQL','Identity','RTL'],
+    type:'project', kind:'Web platform', icon:'fa-solid fa-calendar-check', tone:'cyan', mark:'RDV',
+    links:[{label:'Code', url:'https://github.com/Benziza/rdv-sante', icon:'fa-brands fa-github'}]
   },
   {
-    title:'Flight Booking Platform',
-    img  :'assets/flight_booking.png',
-    year :2021,
-    tech :['Java (JSP/Servlet)','NoSQL'],
-    type :'web',
-    git  :'https://github.com/Benziza/Book-Angular-Part4'
+    title:'VModelTrace',
+    summary:'A local-first Vue debugging tool that traces v-model values and identifies the first broken update edge.',
+    year:'2026',
+    tech:['TypeScript','Vue 3','Vite','DevTools'],
+    type:'project', kind:'Developer tool', icon:'fa-solid fa-route', tone:'emerald', mark:'VMT',
+    links:[{label:'Code', url:'https://github.com/Benziza/vmodeltrace', icon:'fa-brands fa-github'}]
   },
   {
-    title:'Real-Time Chat App',
-    img  :'assets/chat_app.png',
-    year :2021,
-    tech :['Spring Boot','WebSocket'],
-    type :'web',
-    git  :'https://github.com/Benziza/Chat-Application'
+    title:'AstroBdarija',
+    summary:'An astronomy publication in Moroccan Darija with a Markdown content engine and automated GitHub Pages deployment.',
+    year:'2026',
+    tech:['Next.js','TypeScript','Markdown','GitHub Actions'],
+    type:'project', kind:'Content platform', icon:'fa-solid fa-meteor', tone:'indigo', mark:'ASTRO',
+    links:[
+      {label:'Code', url:'https://github.com/Benziza/astrobdarija', icon:'fa-brands fa-github'},
+      {label:'Live', url:'https://benziza.github.io/astrobdarija/', icon:'fa-solid fa-arrow-up-right-from-square'}
+    ]
   },
   {
-    title:'Find-A-Worker Mobile',
-    img  :'assets/find_worker.png',
-    year :2020,
-    tech :['Android','SQLite'],
-    type :'web',
-    git  :'https://github.com/Benziza/allom3alem'
+    title:'Movie & Series Watchlist',
+    summary:'A private, local-first watchlist with instant search, filters, multilingual UI and Arabic RTL support.',
+    year:'2026',
+    tech:['Ionic Vue','TypeScript','Vitest','Cypress'],
+    type:'project', kind:'Mobile app', icon:'fa-solid fa-film', tone:'rose', mark:'WATCH',
+    links:[{label:'Code', url:'https://github.com/Benziza/movie-series-watchlist', icon:'fa-brands fa-github'}]
+  },
+  {
+    title:'High-Performance URL Shortener',
+    summary:'A fast link-shortening API with low-latency redirects, concurrent click tracking, analytics and rate limiting.',
+    year:'2026',
+    tech:['C#','.NET 10','Minimal APIs','xUnit'],
+    type:'project', kind:'Backend service', icon:'fa-solid fa-link', tone:'amber', mark:'URL',
+    links:[{label:'Code', url:'https://github.com/Benziza/high-performance-url-shortener', icon:'fa-brands fa-github'}]
+  },
+  {
+    title:'KodeKloud Subtitle Finder',
+    summary:'A Chrome and Edge extension that locates English video tracks across frames and Shadow DOM roots.',
+    year:'2026',
+    tech:['JavaScript','WebVTT','Chrome','Edge'],
+    type:'project', kind:'Browser extension', icon:'fa-solid fa-closed-captioning', tone:'blue', mark:'CC',
+    links:[{label:'Code', url:'https://github.com/Benziza/kodekloud-english-subtitles', icon:'fa-brands fa-github'}]
+  },
+  {
+    title:'Todo REST API',
+    summary:'A production-minded Todo API with JWT refresh tokens, clean architecture, validation, logging and rate limiting.',
+    year:'2026',
+    tech:['ASP.NET Core','JWT','SQL Server','Docker'],
+    type:'project', kind:'Backend service', icon:'fa-solid fa-list-check', tone:'teal', mark:'API',
+    links:[{label:'Code', url:'https://github.com/Benziza/todo-rest-api-dotnet', icon:'fa-brands fa-github'}]
+  },
+  {
+    title:'OpenObserve',
+    summary:'Improved browser-locale matching and added Arabic localisation with a basic RTL foundation.',
+    year:'2026',
+    tech:['Vue 3','TypeScript','i18n','RTL'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-chart-line', tone:'green', mark:'OO',
+    links:[
+      {label:'#14088 Merged', url:'https://github.com/openobserve/openobserve/pull/14088', icon:'fa-solid fa-code-merge'},
+      {label:'#14130 Review', url:'https://github.com/openobserve/openobserve/pull/14130', icon:'fa-regular fa-clock'}
+    ]
+  },
+  {
+    title:'Orval',
+    summary:'Hardened tag lookup so generated API clients do not collide with properties inherited from Object.prototype.',
+    year:'2026',
+    tech:['TypeScript','OpenAPI','Codegen'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-wand-magic-sparkles', tone:'orange', mark:'ORVAL',
+    links:[{label:'#3902 Merged', url:'https://github.com/orval-labs/orval/pull/3902', icon:'fa-solid fa-code-merge'}]
+  },
+  {
+    title:'.NET',
+    summary:'Corrected Visual Studio metadata for the .NET 10.0.3 release in the official release index.',
+    year:'2026',
+    tech:['.NET','Release metadata','JSON'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-brands fa-microsoft', tone:'purple', mark:'.NET',
+    links:[{label:'#10534 Merged', url:'https://github.com/dotnet/core/pull/10534', icon:'fa-solid fa-code-merge'}]
+  },
+  {
+    title:'FastEndpoints',
+    summary:'Fixed route-value URL encoding in routeless test helpers and documented the corrected behaviour.',
+    year:'2026',
+    tech:['C#','.NET','Testing','Documentation'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-bolt', tone:'yellow', mark:'FE',
+    links:[
+      {label:'#1171 Review', url:'https://github.com/FastEndpoints/FastEndpoints/pull/1171', icon:'fa-regular fa-clock'},
+      {label:'Docs #40', url:'https://github.com/FastEndpoints/Documentation/pull/40', icon:'fa-solid fa-book-open'}
+    ]
+  },
+  {
+    title:'Ionic Framework',
+    summary:'Proposed safer IonTabs outlet handling for a single-child Fragment and supplied a focused reproduction.',
+    year:'2026',
+    tech:['Ionic','React','TypeScript','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-mobile-screen-button', tone:'sky', mark:'IONIC',
+    links:[{label:'#31411 Review', url:'https://github.com/ionic-team/ionic-framework/pull/31411', icon:'fa-regular fa-clock'}]
+  },
+  {
+    title:'CommunityToolkit Docs',
+    summary:'Updated Guard API documentation to use the current collection-size method name.',
+    year:'2026',
+    tech:['.NET','Documentation','API'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-book', tone:'red', mark:'CT',
+    links:[{label:'#658 Review', url:'https://github.com/MicrosoftDocs/CommunityToolkit/pull/658', icon:'fa-regular fa-clock'}]
   },
 ];
 
 /* =========  BUILD FILTER BAR  ========= */
 const filterBar = document.getElementById('filterBar');
-const types     = ['all', ...new Set(projects.map(p => p.type))];
+const filters = [
+  {value:'all', label:'All'},
+  {value:'project', label:'My projects'},
+  {value:'open-source', label:'Open source'}
+];
 
-types.forEach(tp=>{
+filters.forEach(filter=>{
   filterBar.insertAdjacentHTML('beforeend',`
-    <button data-type="${tp}"
-            class="pill ${tp==='all' ? 'is-active' : ''}">
-      ${tp.replace(/^\w/,c=>c.toUpperCase())}
+    <button data-type="${filter.value}"
+            class="pill ${filter.value==='all' ? 'is-active' : ''}">
+      ${filter.label}
     </button>`);
 });
 
@@ -173,24 +213,26 @@ function render(selected='all'){
   projects
     .filter(p => selected==='all' || p.type===selected)
     .forEach(p=>{
-      const tags = p.tech.map(t =>
-        `<span class="bg-white/10 px-3 py-1 rounded-full text-xs">${t}</span>`).join('');
+      const tags = p.tech.map(t => `<span class="project-tag">${t}</span>`).join('');
+      const links = p.links.map(link => `
+        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="project-action">
+          <i class="${link.icon}"></i><span>${link.label}</span>
+        </a>`).join('');
       grid.insertAdjacentHTML('beforeend',`
-        <article class="rounded-lg overflow-hidden bg-white/5 ring-1 ring-white/10 flex flex-col">
-          <img src="${p.img}" alt="${p.title}" class="h-40 w-full object-cover">
-          <div class="p-4 flex-1 flex flex-col justify-between">
-            <div>
-              <h3 class="font-semibold mb-2">${p.title}</h3>
-              <div class="flex flex-wrap gap-2 mb-4">${tags}</div>
+        <article class="portfolio-card">
+          <div class="project-art tone-${p.tone}">
+            <span class="project-icon"><i class="${p.icon}"></i></span>
+            <span class="project-kind">${p.kind}</span>
+            <span class="project-mark" aria-hidden="true">${p.mark}</span>
+          </div>
+          <div class="project-content">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h2 class="text-lg font-semibold text-white">${p.title}</h2>
+              <span class="project-year">${p.year}</span>
             </div>
-            <div class="flex items-center justify-between text-xs text-gray-400">
-              <span>${p.year}</span>
-              <a href="${p.git}" target="_blank" rel="noopener noreferrer"
-                 class="h-7 w-7 grid place-content-center rounded-full bg-white/5
-                        hover:bg-[var(--accent)] hover:text-black transition">
-                <i class="fa-brands fa-github"></i>
-              </a>
-            </div>
+            <p class="project-summary">${p.summary}</p>
+            <div class="flex flex-wrap gap-2 mt-5">${tags}</div>
+            <div class="project-actions">${links}</div>
           </div>
         </article>`);
     });

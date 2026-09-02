@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260902">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 
@@ -28,6 +28,17 @@
       <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
       <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
     </nav>
+    <details class="mobile-nav md:hidden">
+      <summary aria-label="Open navigation"><i class="fa-solid fa-bars"></i></summary>
+      <nav>
+        <a data-page="home" class="nav-item" href="index.html">Home</a>
+        <a data-page="about" class="nav-item" href="about.html">About</a>
+        <a data-page="experience" class="nav-item" href="experience.html">Experience</a>
+        <a data-page="skills" class="nav-item" href="skills.html">Skills</a>
+        <a data-page="projects" class="nav-item" href="projects.html">Projects</a>
+        <a data-page="contacts" class="nav-item" href="contact.html">Contacts</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -54,6 +65,21 @@
 <script>
 /* ========== DATA ========== */
 const experiences = [
+  {
+    period:'2026 – Present',
+    title :'OpenObserve',
+    role  :'Open-Source Contributor',
+    place :'Remote',
+    scope :'Vue 3, TypeScript, Vitest, i18n, Arabic, RTL',
+    resps :[
+      'Improved browser-locale matching with language-subtag fallback (PR #14088, merged).',
+      'Built Arabic localisation, locale selection and a basic RTL foundation (PR #14130, under review).'
+    ],
+    links :[
+      {label:'#14088 Merged', url:'https://github.com/openobserve/openobserve/pull/14088'},
+      {label:'#14130 In review', url:'https://github.com/openobserve/openobserve/pull/14130'}
+    ]
+  },
   {
     period:'Sep 2024 – Present',
     title :'Talentplug',
@@ -140,13 +166,17 @@ function card(obj, side){
     <div class="card ${side}">
       <p class="text-xs text-gray-400 mb-1">${obj.period}</p>
       <h3 class="font-semibold">
-        ${obj.title}${obj.role ? `<span class="text-xs text-gray-400 font-normal"> — ${obj.role}</span>` : ''}
+        ${obj.title}${obj.role ? `<span class="text-xs text-gray-400 font-normal"> | ${obj.role}</span>` : ''}
       </h3>
       ${obj.place ? `<p class="text-xs text-gray-400 mb-3">${obj.place}</p>` : ''}
       ${obj.scope ? `<h4 class="text-sm font-semibold text-[var(--accent)] mb-1">Tech Stack</h4>
                      <p class="text-sm mb-3">${obj.scope}</p>` : ''}
       <h4 class="text-sm font-semibold text-[var(--accent)] mb-1">${obj.role ? 'Key Achievements' : 'Details'}</h4>
       ${body}
+      ${obj.links ? `<div class="flex flex-wrap gap-2 mt-4">
+        ${obj.links.map(link=>`<a href="${link.url}" target="_blank" rel="noopener noreferrer"
+          class="contribution-link">${link.label}<i class="fa-solid fa-arrow-up-right-from-square"></i></a>`).join('')}
+      </div>` : ''}
     </div>
   </article>`;
 }

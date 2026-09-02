@@ -11,7 +11,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Comic-style headline font for the surname -->
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260902">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 
@@ -33,11 +33,30 @@
       <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
       <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
     </nav>
+    <details class="mobile-nav md:hidden">
+      <summary aria-label="Open navigation"><i class="fa-solid fa-bars"></i></summary>
+      <nav>
+        <a data-page="home" class="nav-item" href="index.html">Home</a>
+        <a data-page="about" class="nav-item" href="about.html">About</a>
+        <a data-page="experience" class="nav-item" href="experience.html">Experience</a>
+        <a data-page="skills" class="nav-item" href="skills.html">Skills</a>
+        <a data-page="projects" class="nav-item" href="projects.html">Projects</a>
+        <a data-page="contacts" class="nav-item" href="contact.html">Contacts</a>
+      </nav>
+    </details>
   </div>
 </header>
 
 <!-- ========= HERO ========= -->
 <main class="min-h-screen flex flex-col justify-center text-center px-6">
+  <a href="https://github.com/openobserve/openobserve/pull/14130"
+     target="_blank" rel="noopener noreferrer"
+     class="status-chip mx-auto mb-6">
+    <span class="status-dot"></span>
+    Currently contributing to OpenObserve
+    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+  </a>
+
   <p class="text-lg mb-4">
     Hello <span class="animate-pulse inline-block origin-[70%_70%]">👋</span>, I’m
   </p>
@@ -52,8 +71,8 @@
   </h2>
 
   <p class="max-w-xl mx-auto text-gray-400 mb-10">
-    Building efficient APIs, resilient cloud back-ends and delightful front-end experiences —
-    always with clean code and a passion for teamwork.
+    Full-stack software engineer at Talentplug, building production systems with Vue 3,
+    TypeScript and .NET, while contributing internationalisation improvements to open source.
   </p>
 
   <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -62,26 +81,26 @@
               hover:bg-green-600 transition">Hire&nbsp;Me</a>
     <a href="projects.html"
        class="px-10 py-3 rounded border border-green-500
-              hover:bg-green-500 hover:text-black transition">View&nbsp;Projects</a>
+              hover:bg-green-500 hover:text-black transition">View&nbsp;Current&nbsp;Work</a>
   </div>
 </main>
 
 <!-- ========= FLOATING SOCIALS ========= -->
-<ul class="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6 text-xl">
+<ul class="social-rail fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-6 text-xl">
   <li>
-    <a href="https://github.com/benziza" target="_blank"
+    <a href="https://github.com/benziza" target="_blank" rel="noopener noreferrer"
        class="w-10 h-10 grid place-content-center rounded-full bg-white/10
               hover:bg-[var(--accent)] hover:text-black transition">
        <i class="fab fa-github"></i></a>
   </li>
   <li>
-    <a href="https://www.linkedin.com/in/mohamed-benziza-6849b71bb/" target="_blank"
+    <a href="https://www.linkedin.com/in/mohamed-benziza-6849b71bb/" target="_blank" rel="noopener noreferrer"
        class="w-10 h-10 grid place-content-center rounded-full bg-white/10
               hover:bg-[var(--accent)] hover:text-black transition">
        <i class="fab fa-linkedin-in"></i></a>
   </li>
   <li>
-    <a href="mailto:benizizamohamed@gmail.com"
+    <a href="mailto:benzizamohamed@gmail.com"
        class="w-10 h-10 grid place-content-center rounded-full bg-white/10
               hover:bg-[var(--accent)] hover:text-black transition">
        <i class="fas fa-envelope"></i></a>

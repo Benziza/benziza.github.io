@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260902">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 
@@ -29,6 +29,17 @@
       <a data-page="projects"   class="nav-item hover:text-green-400" href="projects.html">Projects</a>
       <a data-page="contacts"   class="nav-item hover:text-green-400" href="contact.html">Contacts</a>
     </nav>
+    <details class="mobile-nav md:hidden">
+      <summary aria-label="Open navigation"><i class="fa-solid fa-bars"></i></summary>
+      <nav>
+        <a data-page="home" class="nav-item" href="index.html">Home</a>
+        <a data-page="about" class="nav-item" href="about.html">About</a>
+        <a data-page="experience" class="nav-item" href="experience.html">Experience</a>
+        <a data-page="skills" class="nav-item" href="skills.html">Skills</a>
+        <a data-page="projects" class="nav-item" href="projects.html">Projects</a>
+        <a data-page="contacts" class="nav-item" href="contact.html">Contacts</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -37,11 +48,59 @@
   <p class="uppercase tracking-widest text-[var(--accent)] mb-1">Projects</p>
   <h1 class="text-3xl md:text-4xl font-semibold mb-4">Hands-On Work I’m Proud Of</h1>
   <p class="max-w-3xl text-gray-300 mb-12">
-    A selection of professional, personal and academic builds—each focusing on clean code
-    and solid architecture.
+    Current open-source contributions alongside selected personal and academic builds, each
+    focusing on clean code, usability and solid architecture.
   </p>
 
-  <!-- ========== FILTER BAR (NEW) ========== -->
+  <section class="opensource-card mb-12" aria-labelledby="open-source-title">
+    <div class="opensource-visual" aria-hidden="true">
+      <span class="opensource-mark"><i class="fa-solid fa-chart-line"></i></span>
+      <p class="text-xs uppercase tracking-[0.24em] text-gray-400">Open source</p>
+      <p class="text-2xl font-semibold text-white">OpenObserve</p>
+      <p class="text-sm text-gray-400">Observability platform</p>
+    </div>
+
+    <div class="p-6 md:p-8">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+        <h2 id="open-source-title" class="text-2xl font-semibold text-white">
+          Arabic localisation &amp; resilient i18n
+        </h2>
+        <span class="project-badge">2026</span>
+      </div>
+      <p class="text-gray-300 mb-6 max-w-2xl">
+        Improving language detection and expanding OpenObserve with Arabic translations,
+        locale selection and the essential RTL foundation, while keeping queries, identifiers
+        and other technical content readable.
+      </p>
+
+      <div class="space-y-3">
+        <a class="contribution-row" href="https://github.com/openobserve/openobserve/pull/14088"
+           target="_blank" rel="noopener noreferrer">
+          <span class="contribution-status is-merged"><i class="fa-solid fa-check"></i> Merged</span>
+          <span class="flex-1"><strong>#14088</strong> Match browser locale by language subtag</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+        <a class="contribution-row" href="https://github.com/openobserve/openobserve/pull/14130"
+           target="_blank" rel="noopener noreferrer">
+          <span class="contribution-status is-review"><i class="fa-regular fa-clock"></i> In review</span>
+          <span class="flex-1"><strong>#14130</strong> Add Arabic localisation and basic RTL support</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mt-6">
+        <span class="project-badge">Vue 3</span>
+        <span class="project-badge">TypeScript</span>
+        <span class="project-badge">Vitest</span>
+        <span class="project-badge">i18n</span>
+        <span class="project-badge">RTL</span>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="text-xl font-semibold mb-6">Selected projects</h2>
+
+  <!-- ========== FILTER BAR ========== -->
   <div id="filterBar" class="flex flex-wrap gap-4 mb-10"></div>
 
   <!-- ========== GRID ========== -->
@@ -126,7 +185,7 @@ function render(selected='all'){
             </div>
             <div class="flex items-center justify-between text-xs text-gray-400">
               <span>${p.year}</span>
-              <a href="${p.git}" target="_blank"
+              <a href="${p.git}" target="_blank" rel="noopener noreferrer"
                  class="h-7 w-7 grid place-content-center rounded-full bg-white/5
                         hover:bg-[var(--accent)] hover:text-black transition">
                 <i class="fa-brands fa-github"></i>

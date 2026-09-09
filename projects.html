@@ -135,13 +135,14 @@ const projects = [
   },
   {
     title:'OpenObserve',
-    summary:'Improved browser-locale matching and added Arabic localisation with a basic RTL foundation.',
+    summary:'Added Arabic localisation and baseline RTL support, improved browser-locale matching, and migrated directional spacing to logical properties.',
     year:'2026',
     tech:['Vue 3','TypeScript','i18n','RTL'],
     type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-chart-line', tone:'green', mark:'OO',
     links:[
       {label:'#14088 Merged', url:'https://github.com/openobserve/openobserve/pull/14088', icon:'fa-solid fa-code-merge'},
-      {label:'#14130 Review', url:'https://github.com/openobserve/openobserve/pull/14130', icon:'fa-regular fa-clock'}
+      {label:'#14130 Merged', url:'https://github.com/openobserve/openobserve/pull/14130', icon:'fa-solid fa-code-merge'},
+      {label:'#14176 Merged', url:'https://github.com/openobserve/openobserve/pull/14176', icon:'fa-solid fa-code-merge'}
     ]
   },
   {
@@ -167,8 +168,42 @@ const projects = [
     tech:['C#','.NET','Testing','Documentation'],
     type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-bolt', tone:'yellow', mark:'FE',
     links:[
-      {label:'#1171 Review', url:'https://github.com/FastEndpoints/FastEndpoints/pull/1171', icon:'fa-regular fa-clock'},
-      {label:'Docs #40', url:'https://github.com/FastEndpoints/Documentation/pull/40', icon:'fa-solid fa-book-open'}
+      {label:'#1171 Merged', url:'https://github.com/FastEndpoints/FastEndpoints/pull/1171', icon:'fa-solid fa-code-merge'},
+      {label:'Docs #40 Merged', url:'https://github.com/FastEndpoints/Documentation/pull/40', icon:'fa-solid fa-code-merge'}
+    ]
+  },
+  {
+    title:'theHarvester',
+    summary:'Validated HarvestView log levels before server startup so invalid values return a clear CLI usage error instead of crashing Uvicorn.',
+    year:'2026',
+    tech:['Python','argparse','Uvicorn','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-seedling', tone:'emerald', mark:'TH',
+    links:[{label:'#2602 Merged', url:'https://github.com/laramies/theHarvester/pull/2602', icon:'fa-solid fa-code-merge'}]
+  },
+  {
+    title:'Spotify Confidence CLI',
+    summary:'Proposed a fix for the --no-telemetry flag so the setup wizard starts correctly while preserving the environment-variable opt-out.',
+    year:'2026',
+    tech:['TypeScript','CLI','Yargs','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-brands fa-spotify', tone:'green', mark:'CLI',
+    links:[{label:'#67 Open', url:'https://github.com/spotify/confidence-cli/pull/67', icon:'fa-regular fa-clock'}]
+  },
+  {
+    title:'Metasploit Framework',
+    summary:'Proposed a module-search fix so negated shorthand such as type:-aux correctly excludes auxiliary modules, with regression coverage.',
+    year:'2026',
+    tech:['Ruby','RSpec','Search','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-terminal', tone:'blue', mark:'MSF',
+    links:[{label:'#21878 Open', url:'https://github.com/rapid7/metasploit-framework/pull/21878', icon:'fa-regular fa-clock'}]
+  },
+  {
+    title:'cloud-init',
+    summary:'Proposed RFC 2231 filename encoding in make-mime so non-ASCII attachment names survive parsing while preserving their content.',
+    year:'2026',
+    tech:['Python','MIME','Unicode','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-cloud', tone:'orange', mark:'CLOUD',
+    links:[
+      {label:'#7071 Open', url:'https://github.com/canonical/cloud-init/pull/7071', icon:'fa-regular fa-clock'}
     ]
   },
   {
@@ -177,15 +212,15 @@ const projects = [
     year:'2026',
     tech:['Ionic','React','TypeScript','Testing'],
     type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-mobile-screen-button', tone:'sky', mark:'IONIC',
-    links:[{label:'#31411 Review', url:'https://github.com/ionic-team/ionic-framework/pull/31411', icon:'fa-regular fa-clock'}]
+    links:[{label:'#31411 Open', url:'https://github.com/ionic-team/ionic-framework/pull/31411', icon:'fa-regular fa-clock'}]
   },
   {
     title:'CommunityToolkit Docs',
-    summary:'Updated Guard API documentation to use the current collection-size method name.',
+    summary:'Proposed a Guard API documentation correction to use the current collection-size method name.',
     year:'2026',
     tech:['.NET','Documentation','API'],
     type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-book', tone:'red', mark:'CT',
-    links:[{label:'#658 Review', url:'https://github.com/MicrosoftDocs/CommunityToolkit/pull/658', icon:'fa-regular fa-clock'}]
+    links:[{label:'#658 Open', url:'https://github.com/MicrosoftDocs/CommunityToolkit/pull/658', icon:'fa-regular fa-clock'}]
   },
 ];
 

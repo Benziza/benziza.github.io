@@ -91,6 +91,26 @@ const projects = [
     links:[{label:'Code', url:'https://github.com/Benziza/kodekloud-english-subtitles', icon:'fa-brands fa-github'}]
   },
   {
+    title:'MoroccoAPI',
+    summary:'Improved Arabic place search by normalizing diacritics, alef variants and tatweel, and streamlined the public dataset proposal workflow.',
+    year:'2026',
+    tech:['TypeScript','Arabic','Unicode','Open Data'],
+    type:'project', kind:'Open-data API', icon:'fa-solid fa-map-location-dot', tone:'red', mark:'MA',
+    links:[
+      {label:'Code', url:'https://github.com/MoroccoAPI/MoroccoAPI', icon:'fa-brands fa-github'},
+      {label:'#3 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/3', icon:'fa-solid fa-code-merge'},
+      {label:'#5 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/5', icon:'fa-solid fa-code-merge'}
+    ]
+  },
+  {
+    title:'cloud-init',
+    summary:'Fixed MIME attachment filename encoding so Unicode filenames survive parsing, with regression coverage for ASCII and non-ASCII cases.',
+    year:'2026',
+    tech:['Python','MIME','RFC 2231','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-cloud', tone:'sky', mark:'CI',
+    links:[{label:'#7071 Merged', url:'https://github.com/canonical/cloud-init/pull/7071', icon:'fa-solid fa-code-merge'}]
+  },
+  {
     title:'RepoDB',
     summary:'Fixed conditional-expression evaluation in LINQ query predicates so ternary branches resolve to the correct query parameters, with regression coverage for equality and relational operators.',
     year:'2026',

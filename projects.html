@@ -92,15 +92,34 @@ const projects = [
   },
   {
     title:'MoroccoAPI',
-    summary:'Improved Arabic place search by normalizing diacritics, alef variants and tatweel, and streamlined the public dataset proposal workflow.',
+    summary:'Expanded the open-data API with HCP provinces and communes, added a public homepage and releases, and organized API code, tests and datasets by domain. Earlier work improved Arabic place search and dataset proposals.',
     year:'2026',
-    tech:['TypeScript','Arabic','Unicode','Open Data'],
+    tech:['TypeScript','REST API','HCP','Arabic','Open Data'],
     type:'project', kind:'Open-data API', icon:'fa-solid fa-map-location-dot', tone:'red', mark:'MA',
     links:[
       {label:'Code', url:'https://github.com/MoroccoAPI/MoroccoAPI', icon:'fa-brands fa-github'},
       {label:'#3 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/3', icon:'fa-solid fa-code-merge'},
-      {label:'#5 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/5', icon:'fa-solid fa-code-merge'}
+      {label:'#5 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/5', icon:'fa-solid fa-code-merge'},
+      {label:'#7 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/7', icon:'fa-solid fa-code-merge'},
+      {label:'#13 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/13', icon:'fa-solid fa-code-merge'},
+      {label:'#14 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/14', icon:'fa-solid fa-code-merge'}
     ]
+  },
+  {
+    title:'Microsoft Aspire',
+    summary:'Fixed Docker Compose publishing to preserve multiline quoted values in existing .env files, including line endings and escaped quotes, with regression coverage for parsing and publishing.',
+    year:'2026',
+    tech:['C#','.NET','Docker Compose','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-brands fa-microsoft', tone:'purple', mark:'ASPIRE',
+    links:[{label:'#20620 Merged', url:'https://github.com/microsoft/aspire/pull/20620', icon:'fa-solid fa-code-merge'}]
+  },
+  {
+    title:'Metasploit (Rapid7)',
+    summary:'Fixed negated module-type shorthand in search so type:-aux correctly excludes auxiliary modules, with regression coverage for shorthand, case handling and conflicting filters.',
+    year:'2026',
+    tech:['Ruby','RSpec','Search','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-shield-halved', tone:'blue', mark:'MSF',
+    links:[{label:'#21878 Merged', url:'https://github.com/rapid7/metasploit-framework/pull/21878', icon:'fa-solid fa-code-merge'}]
   },
   {
     title:'MMGIS (NASA AMMOS)',

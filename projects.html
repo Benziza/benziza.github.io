@@ -92,7 +92,7 @@ const projects = [
   },
   {
     title:'MoroccoAPI',
-    summary:'Expanded the open-data API with HCP provinces and communes, added a public homepage and releases, and organized API code, tests and datasets by domain. Earlier work improved Arabic place search and dataset proposals.',
+    summary:'Expanded the open-data API with health directories and telecom endpoints for Moroccan phone validation, prefix lookup and area codes. Earlier work added HCP provinces and communes, Arabic place search, a public homepage and releases, and domain-based organization.',
     year:'2026',
     tech:['TypeScript','REST API','HCP','Arabic','Open Data'],
     type:'project', kind:'Open-data API', icon:'fa-solid fa-map-location-dot', tone:'red', mark:'MA',
@@ -102,8 +102,29 @@ const projects = [
       {label:'#5 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/5', icon:'fa-solid fa-code-merge'},
       {label:'#7 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/7', icon:'fa-solid fa-code-merge'},
       {label:'#13 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/13', icon:'fa-solid fa-code-merge'},
-      {label:'#14 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/14', icon:'fa-solid fa-code-merge'}
+      {label:'#14 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/14', icon:'fa-solid fa-code-merge'},
+      {label:'#17 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/17', icon:'fa-solid fa-code-merge'},
+      {label:'#22 Merged', url:'https://github.com/MoroccoAPI/MoroccoAPI/pull/22', icon:'fa-solid fa-code-merge'}
     ]
+  },
+  {
+    title:'PhotoCraft',
+    summary:'Preserved unchanged XMP translations when editing File Info and fixed As Is pixel replacement when reusing variable definitions, with regression coverage for metadata round trips and replacement methods.',
+    year:'2026',
+    tech:['Rust','XMP','PSD','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-image', tone:'orange', mark:'PHOTO',
+    links:[
+      {label:'#2152 Merged', url:'https://github.com/storytold/photocraft/pull/2152', icon:'fa-solid fa-code-merge'},
+      {label:'#2655 Merged', url:'https://github.com/storytold/photocraft/pull/2655', icon:'fa-solid fa-code-merge'}
+    ]
+  },
+  {
+    title:'Craft Launcher',
+    summary:'Fixed running-app detection on Unix by escaping regex metacharacters in paths before calling pgrep, with regression coverage for special characters and similar filenames.',
+    year:'2026',
+    tech:['Rust','Unix','Regex','Testing'],
+    type:'open-source', kind:'Open-source contribution', icon:'fa-solid fa-rocket', tone:'indigo', mark:'CRAFT',
+    links:[{label:'#81 Merged', url:'https://github.com/storytold/craft-launcher/pull/81', icon:'fa-solid fa-code-merge'}]
   },
   {
     title:'Microsoft Aspire',

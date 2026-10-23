@@ -165,7 +165,8 @@ body::before{                       /* halo vert */
   pointer-events:none;
 }
 .icon-card{
-  height:80px;width:80px;display:grid;place-content:center;
+  position:relative;width:100%;max-width:80px;aspect-ratio:1;min-width:0;
+  display:grid;place-content:center;justify-self:center;
   background:#202328;border-radius:.3rem;
   transition:transform .15s,box-shadow .15s;
 }
